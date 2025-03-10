@@ -63,16 +63,16 @@ import cloudinary from "../lib/cloudinary.js";
 
    generateToken(user._id,res)
    res.status(200).json({
-    _id: newUser._id,
-    fullName: newUser.fullName,
-    email: newUser.email,
-    profilePic: newUser.profilePic,
+    _id: user._id,
+    fullName: user.fullName,
+    email: user.email,
+    profilePic: user.profilePic,
    })
 
 
   }catch(error){
-    console.log("error inn login", error.message);
-    return res.status(500).json({message: "Internal Server Errro"});
+    console.log("error in login", error.message);
+    return res.status(500).json({message: "Internal Server Erro"});
   }
 };
  export const logout = (req, res)=>{
@@ -96,11 +96,23 @@ import cloudinary from "../lib/cloudinary.js";
       }
 
       const uploadResponse = await cloudinary.uploader.upload(profilePic)
-      const  updateUser = await User.findByIdAndUpdate(userId, {profilePic:uploadResponse.secure_url},{new:true})
+      const  updatedUser = await User.findByIdAndUpdate(userId, {profilePic:uploadResponse.secure_url},{new:true})
+      res.status(200).json({message: "Profile updated successfully", updatedUser})
 
       
       }catch(error){
+        console.log("error in update profile" , error);
+        res.status(500).json({message:"Internal error"});
 
       }
-    }
+    };
+
+    export const checkAuth = (req , res) =>{
+      try{
+        res.status(200).json(req.user);
+      }catch(error){
+        console.log("Error in checkAuth controller", error.message);
+        res.status(500).json({message: "Internal Server Error"});
+      }
+    };
 
