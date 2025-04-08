@@ -33,9 +33,9 @@ npm install
 
 ### Create a .env file inside server/ and add the following:
 env
-MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_super_secret_key
-PORT=5000
+MONGO_URI=your_mongodb_connection_string,
+JWT_SECRET=your_super_secret_key,
+PORT=5000,
 
 ### Start the backend server:
 npm run dev
