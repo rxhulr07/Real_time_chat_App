@@ -23,7 +23,6 @@ A full-stack, real-time chat application built using the **MERN Stack** (MongoDB
 ### 1. Clone the repository
 Bash comand
 git clone https://github.com/Rahulranjan070/Real_time_chat_App.git
-cd Real_time_chat_App
 
 ###📡 Backend Setup (Express + MongoDB + Socket.io)
 Navigate to the backend folder:
@@ -61,6 +60,7 @@ Chat in real-time with other users 💬
 
 Enjoy a fast and modern UI 🚀
 
-🔗 Live Demo
+*****************************************************************
+### 🔗 Live Demo
 https://chat-app-4xez.onrender.com
 
