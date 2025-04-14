@@ -1,6 +1,6 @@
 # 💬 Real-Time Chat App
 
-A full-stack, real-time chat application built using the **MERN Stack** (MongoDB, Express.js, React.js, Node.js) with real-time communication powered by **Socket.io**. The UI is styled using **Tailwind CSS** and **Daisy UI**, offering a responsive and modern user experience.
+A full-stack, real-time chat application built using the **MERN Stack** (MongoDB, Express.js, React.js, Node.js) with real-time communication powered by **Socket.io**. The UI is styled using **Tailwind CSS** and **Daisy UI**, offering a responsive and modern User experience.
 
 ## 🚀 Features
 
