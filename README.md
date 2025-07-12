@@ -21,8 +21,9 @@ A full-stack, real-time chat application built using the **MERN Stack** (MongoDB
 ## ⚙️ Installation
 
 ### 1. Clone the repository
-Bash comand
+```sh
 git clone https://github.com/Rahulranjan070/Real_time_chat_App.git
+```
 
 ###📡 Backend Setup (Express + MongoDB + Socket.io)
 Navigate to the backend folder:
