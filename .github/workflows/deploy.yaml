@@ -22,17 +22,16 @@ jobs:
         run: npm install
         working-directory: frontend
 
-      - name: 🏗️ Build frontend
+      - name: 🏗️ Build frontend with Vite
         run: npm run build
         working-directory: frontend
 
-      - name: 🚀 Deploy to S3
-        uses: jakejarvis/s3-sync-action@master
+      - name: ☁️ Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
         with:
-          args: --delete
-          SOURCE_DIR: frontend/dist
-        env:
-          AWS_S3_BUCKET: ${{ secrets.S3_BUCKET_NAME }}
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_REGION: ${{ secrets.AWS_REGION }}
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: 🚀 Deploy to S3 using AWS CLI
+        run: aws s3 sync frontend/dist s3://${{ secrets.S3_BUCKET_NAME }} --delete
